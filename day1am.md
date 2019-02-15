@@ -43,13 +43,78 @@ ls -a
 ```
 The ```-a``` switch makes ```ls``` show hidden files, which start with a dot in their file name.
 
+We are going to edit the file ```.bash_profile``` to configure your account so that you have access to the genomics software repository that we will be using. We will do this by adding the following to the end of your bash profile
+
+```
+if [[ -e '/usr/local/extras/Genomics' ]]; 
+then
+    source /usr/local/extras/Genomics/.bashrc
+fi
+```
+To do this we will use the program ```nano```, which is a simple text editor that can be used from the command line
+```bash
+nano .bash_profile
+```
+You will see something like
+```
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/bin
+
+export PATH
+export PATH=/usr/local/extras/Genomics/bin:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/extras/Genomics/lib/lib
+export PATH=/usr/local/extras/Genomics/bin:$PATH
+export PATH=/usr/local/extras/Genomics/bin:$PATH
+if [[ -e '/usr/local/extras/Genomics' ]];
+```
+Copy the text you want to insert from above and paste it at the end. You will need to use the arrow buttons to move the cursor within the file (the mouse doesn't work here) and the right mouse button can be used to paste to the command line (^V doesn't work in Linux). You will see there is usefully information at the bottom of the prompt that tells you how to save the file (^O, save it with the same name) and exit (^X, ^ means ctrl).
+
+Another way of viewing the content of a text file is with ```less```. Unlike ```nano``` less is just a viewer, not an editor. It is particularly useful for viewing very large files, because it only shows them a few lines at a time. To check that your edit has worked and your ```.bash_profile``` file looks OK type in
+```bash
+less .bash_profile
+```
+If this was a bigger file you could the arrow keys to move up and down lines in the file. Check that the genomics path is there in the file. It should look something like this
+```
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/bin
+
+export PATH
+export PATH=/usr/local/extras/Genomics/bin:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/extras/Genomics/lib/lib
+export PATH=/usr/local/extras/Genomics/bin:$PATH
+export PATH=/usr/local/extras/Genomics/bin:$PATH
+if [[ -e '/usr/local/extras/Genomics' ]];
+then
+    source /usr/local/extras/Genomics/.bashrc
+fi
+```
+
+To check that this has worked we will need to log out of the hpc and then log in again. 
+
+
 We are going to create a working directory in the /fastdata directory on sharc for you to work within during this practical. The fastdata directory is useful because there are no limits to the amount of data you can put there and data there can also be accessed faster (by the machine) than elsewhere on the cluster. However, it is not meant for long term storage of your data and everything on fastdata is automatically deleted after 3 months. It is also good practice for you to delete any data you no longer need, so as not to clog up fatsdata for everyone else. If you are working with large data sets for your research project, your supervisor will probably be able to give you access to their group storage area (in /shared).
 
 Move to the fastdata directory:
 ```bash
 cd /fastdata
 ```
-Why is the ```\``` there? What happens if you put ```cd fastdata``` instead? Why is this?
+Why is the ```/``` there? What happens if you put ```cd fastdata``` instead? Why is this?
 
 Create a new directory here that is named your username (ie. boxxx) replacing the xxx below
 ```bash
