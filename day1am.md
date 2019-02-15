@@ -93,6 +93,11 @@ then
     source /usr/local/extras/Genomics/.bashrc
 fi
 ```
+Type ```q``` to quit less.
+There are many options that can be used with ```less``` in particular to control how many, and which, lines are shown and for searching the text. You can see what these are using
+```bash
+man less
+```
 
 To check that this has worked we will need to log out of the hpc and then log in again. Log out of the working node first by typing ```logout``` and then ```logout``` again to exit sharc. Log in again (starting a new ssh session) and start a new interactive session (```qrsh```). You should then see
 ```
