@@ -68,12 +68,6 @@ fi
 
 PATH=$PATH:$HOME/bin
 
-export PATH
-export PATH=/usr/local/extras/Genomics/bin:$PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/extras/Genomics/lib/lib
-export PATH=/usr/local/extras/Genomics/bin:$PATH
-export PATH=/usr/local/extras/Genomics/bin:$PATH
-if [[ -e '/usr/local/extras/Genomics' ]];
 ```
 Copy the text you want to insert from above and paste it at the end. You will need to use the arrow buttons to move the cursor within the file (the mouse doesn't work here) and the right mouse button can be used to paste to the command line (^V doesn't work in Linux). You will see there is usefully information at the bottom of the prompt that tells you how to save the file (^O, save it with the same name) and exit (^X, ^ means ctrl).
 
@@ -94,18 +88,18 @@ fi
 
 PATH=$PATH:$HOME/bin
 
-export PATH
-export PATH=/usr/local/extras/Genomics/bin:$PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/extras/Genomics/lib/lib
-export PATH=/usr/local/extras/Genomics/bin:$PATH
-export PATH=/usr/local/extras/Genomics/bin:$PATH
 if [[ -e '/usr/local/extras/Genomics' ]];
 then
     source /usr/local/extras/Genomics/.bashrc
 fi
 ```
 
-To check that this has worked we will need to log out of the hpc and then log in again. 
+To check that this has worked we will need to log out of the hpc and then log in again. Log out of the working node first by typing ```logout``` and then ```logout``` again to exit sharc. Log in again (starting a new ssh session) and ```qrsh```. You should then see
+```
+  Your account is set up to use the Genomics Software Repository
+     More info: http://soria-carrasco.staff.shef.ac.uk/softrepo
+```
+You should now see this every time you log in and start a new interactive session.
 
 
 We are going to create a working directory in the /fastdata directory on sharc for you to work within during this practical. The fastdata directory is useful because there are no limits to the amount of data you can put there and data there can also be accessed faster (by the machine) than elsewhere on the cluster. However, it is not meant for long term storage of your data and everything on fastdata is automatically deleted after 3 months. It is also good practice for you to delete any data you no longer need, so as not to clog up fatsdata for everyone else. If you are working with large data sets for your research project, your supervisor will probably be able to give you access to their group storage area (in /shared).
