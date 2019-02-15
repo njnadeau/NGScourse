@@ -94,13 +94,12 @@ then
 fi
 ```
 
-To check that this has worked we will need to log out of the hpc and then log in again. Log out of the working node first by typing ```logout``` and then ```logout``` again to exit sharc. Log in again (starting a new ssh session) and ```qrsh```. You should then see
+To check that this has worked we will need to log out of the hpc and then log in again. Log out of the working node first by typing ```logout``` and then ```logout``` again to exit sharc. Log in again (starting a new ssh session) and start a new interactive session (```qrsh```). You should then see
 ```
   Your account is set up to use the Genomics Software Repository
      More info: http://soria-carrasco.staff.shef.ac.uk/softrepo
 ```
 You should now see this every time you log in and start a new interactive session.
-
 
 We are going to create a working directory in the /fastdata directory on sharc for you to work within during this practical. The fastdata directory is useful because there are no limits to the amount of data you can put there and data there can also be accessed faster (by the machine) than elsewhere on the cluster. However, it is not meant for long term storage of your data and everything on fastdata is automatically deleted after 3 months. It is also good practice for you to delete any data you no longer need, so as not to clog up fatsdata for everyone else. If you are working with large data sets for your research project, your supervisor will probably be able to give you access to their group storage area (in /shared).
 
@@ -110,7 +109,7 @@ cd /fastdata
 ```
 Why is the ```/``` there? What happens if you put ```cd fastdata``` instead? Why is this?
 
-Create a new directory here that is named your username (ie. boxxx) replacing the xxx below
+Create a new directory here that is named your username (ie. boxxx, replacing the xxx)
 ```bash
 mkdir boXXX
 ```
