@@ -24,7 +24,7 @@ This node is just a gateway to the worker nodes. If you are on a worker node you
 [bo1nn@sharc-node004 ~]$
 ```
 
-## 2. Creating directories and moving around
+## 2. Getting to grips with Linux and setting up you bash profile
 First lets get used to finding your way around. So where are you now in the file system? 
 ```bash
 pwd
@@ -98,6 +98,8 @@ There are many options that can be used with ```less``` in particular to control
 ```bash
 man less
 ```
+Adding ```man``` before most Linux commands will show you the manual page. This itself is opened using ```less``` so you can try out some of the options while you're there. What does ```z``` do?  
+
 
 To check that this has worked we will need to log out of the hpc and then log in again. Log out of the working node first by typing ```logout``` and then ```logout``` again to exit sharc. Log in again (starting a new ssh session) and start a new interactive session (```qrsh```). You should then see
 ```
