@@ -153,5 +153,5 @@ Why do we need the ```-r``` (hint check ```man cp```)? What happens if you leave
 
 Navigate into your new ```raw``` folder that should now be in your fastdata folder. This contains mutliple sequence read files generated from a single sample. Sequence data is now often generated like this and you may well get multiple read files back for each sample you send off for sequencing. 
 
-## 3. Submitting batch jobs to the cluster
+## 4. Submitting batch jobs to the cluster
 
