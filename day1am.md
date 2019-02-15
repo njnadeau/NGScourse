@@ -98,8 +98,9 @@ There are many options that can be used with ```less``` in particular to control
 ```bash
 man less
 ```
-Adding ```man``` before most Linux commands will show you the manual page. This itself is opened using ```less``` so you can try out some of the options while you're there. What does ```z``` do?  
-#### Table of useful less options
+Adding ```man``` before most Linux commands will show you the manual page. This itself is opened using ```less``` so you can try out some of the options while you're there. 
+What does ```z``` do?  
+#### Table of useful ```less``` options
 
 | Keyboard | What it does |
 | ------- | ---- | 
@@ -116,7 +117,10 @@ Adding ```man``` before most Linux commands will show you the manual page. This 
 | q | exit less |
 
 
-To check that this has worked we will need to log out of the hpc and then log in again. Log out of the working node first by typing ```logout``` and then ```logout``` again to exit sharc. Log in again (starting a new ssh session) and start a new interactive session (```qrsh```). You should then see
+To check that the setup worked we will need to log out of the hpc and then log in again. Log out of the working node first by typing ```logout``` and then ```logout``` again to exit sharc. 
+
+## 3. Navigating, creating directories and moving files
+Log in again (starting a new ssh session) and start a new interactive session (```qrsh```). You should then see
 ```
   Your account is set up to use the Genomics Software Repository
      More info: http://soria-carrasco.staff.shef.ac.uk/softrepo
