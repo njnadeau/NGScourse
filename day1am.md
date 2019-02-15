@@ -100,7 +100,9 @@ man less
 ```
 Adding ```man``` before most Linux commands will show you the manual page. This itself is opened using ```less``` so you can try out some of the options while you're there. What does ```z``` do?  
 #### Table of useful less options
+
 | Keyboard | What it does |
+| ------- | ---- | 
 | up arrow | one line up |
 | down arrow | one line down |
 | f or Space | one screen size down |
