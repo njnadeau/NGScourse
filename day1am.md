@@ -145,11 +145,13 @@ Navigate into your new folder (hint ```cd```). The data that you are going to be
 ```bash
 cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2019/data/raw .
 ```
-The ```.``` here simply means "use the exisiting names". Because we were in the directory where we wanted to copy the files we didn't need to spcify the path but  
+The ```.``` here simply means "use the exisiting names". Because we were in the directory where we wanted to copy the files we didn't need to specify the path but this would do the same thing 
 ```bash
 cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2019/data/raw /fastdata/boXXX/.
 ```
-would do the same thing
 Why do we need the ```-r``` (hint check ```man cp```)? What happens if you leave it off?
 
 Navigate into your new ```raw``` folder that should now be in your fastdata folder. This contains mutliple sequence read files generated from a single sample. Sequence data is now often generated like this and you may well get multiple read files back for each sample you send off for sequencing. 
+
+## 3. Submitting batch jobs to the cluster
+
