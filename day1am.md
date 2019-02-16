@@ -72,13 +72,13 @@ fi
 PATH=$PATH:$HOME/bin
 
 ```
-Copy the text you want to insert from above and paste it at the end. You will need to use the arrow buttons to move the cursor within the file (the mouse doesn't work here) and the right mouse button can be used to paste to the command line (^V doesn't work in Linux). You will see there is usefully information at the bottom of the prompt that tells you how to save the file (ctrl o, save it with the same name) and exit (ctrl x).
+Copy the text you want to insert from above and paste it at the end. You will need to use the arrow buttons to move the cursor within the file (the mouse doesn't work here) and the right mouse button can be used to paste to the command line (^V doesn't work in Linux). Usefully, you will see there is information at the bottom of the screen that tells you how to save the file (ctrl o, save it with the same name) and exit (ctrl x).
 
 Another way of viewing the content of a text file is with ```less```. Unlike ```nano``` less is just a viewer, not an editor. It is particularly useful for viewing very large files, because it only shows them a few lines at a time. To check that your edit has worked and your ```.bash_profile``` file looks OK type in
 ```bash
 less .bash_profile
 ```
-Check that the genomics path is there in the file (you may need to use the arrow key to move to the end of the file). It should look something like this
+Check that the genomics path is there in the file (you may need to use the arrow keys to move to the end of the file). It should look something like this
 ```
 # .bash_profile
 
@@ -101,7 +101,7 @@ There are many options that can be used with ```less``` in particular to control
 ```bash
 man less
 ```
-Adding ```man``` before most Linux commands will show you the manual page. This itself is opened using ```less``` so you can try out some of the options while you're there. 
+Adding ```man``` before most Linux commands will show you the manual page. The manual itself is opened using ```less``` so you can try out some of the options while you're there. 
 What does ```z``` do?  
 #### Table of useful ```less``` options
 
@@ -130,7 +130,8 @@ Log in again (starting a new ssh session) and start a new interactive session (`
 ```
 You should now see this every time you log in and start a new interactive session.
 
-We are going to create a working directory in the /fastdata directory on sharc for you to work within during this practical. The fastdata directory is useful because there are no limits to the amount of data you can put there and data there can also be accessed faster (by the machine) than elsewhere on the cluster. However, it is not meant for long term storage of your data and everything on fastdata is automatically deleted after 3 months. It is also good practice for you to delete any data you no longer need, so as not to clog up fatsdata for everyone else. If you are working with large data sets for your research project, your supervisor will probably be able to give you access to their group storage area (in /shared).
+We are going to create a working directory in the /fastdata directory on sharc for you to work within during this practical. The fastdata directory is useful because there are no limits to the amount of data you can put there and data there can also be accessed faster (by the machine) than elsewhere on the cluster. However, it is not meant for long term storage of your data and everything on fastdata is automatically deleted after 3 months. It is also good practice for you to delete any data you no longer need, so as not to clog up fastdata for everyone else. If you are working with large data sets for your research project, your supervisor will probably be able to give you access to their group storage area (in ```/shared```) and you also have ```/data``` directory with a file limit of 100GB. Read more about filestores here:
+http://docs.iceberg.shef.ac.uk/en/latest/hpc/filestore.html
 
 Move to the fastdata directory:
 ```bash
