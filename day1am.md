@@ -193,6 +193,7 @@ https://www.sheffield.ac.uk/cics/research/hpc/sharc/batch
 The ```#$ -m bea``` and ```#$ -M``` options mean that it will send an email when the script starts, stops or aborts. You need to add your email address after the ```#$ -M``` option. The save the file and exit.
 
 What does this part ```for i in raw/60A/*.sanfastq.gz; do md5sum $i; done``` do?
+
 *Answer*
 It runs a ```for``` loop, where for every value of ```raw/60A/*.sanfastq.gz``` (same as running ```ls raw/60A/*.sanfastq.gz```, try this if you're not sure what it means) it runs ```md5sum```. This script runs the commands in serial, where each command is run on a file one after the other. This works OK here where the command is fairly quick to run, but if we were running something  longer it would take too long to run one after the other. In the next section we will look at running things in parallel, where each command (or file/sample in our case) runs on a different node on the cluster.
 
