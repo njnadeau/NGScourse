@@ -43,7 +43,7 @@ Your home directory might look empty, but is it?
 ```bash
 ls -a
 ```
-The ```-a``` switch makes ```ls``` show hidden files, which start with a dot in their file name.
+You might notice that the contents of the directory you are currently in are also displayed on the right hand panel in MobaXterm. The ```-a``` switch makes ```ls``` show hidden files, which start with a dot in their file name.
 
 We are going to edit the file ```.bash_profile``` to configure your account so that you have access to the genomics software repository that we will be using. We will do this by adding the following to the end of your bash profile
 
