@@ -71,13 +71,13 @@ fi
 PATH=$PATH:$HOME/bin
 
 ```
-Copy the text you want to insert from above and paste it at the end. You will need to use the arrow buttons to move the cursor within the file (the mouse doesn't work here) and the right mouse button can be used to paste to the command line (^V doesn't work in Linux). You will see there is usefully information at the bottom of the prompt that tells you how to save the file (^O, save it with the same name) and exit (^X, ^ means ctrl).
+Copy the text you want to insert from above and paste it at the end. You will need to use the arrow buttons to move the cursor within the file (the mouse doesn't work here) and the right mouse button can be used to paste to the command line (^V doesn't work in Linux). You will see there is usefully information at the bottom of the prompt that tells you how to save the file (ctrl o, save it with the same name) and exit (ctrl x).
 
 Another way of viewing the content of a text file is with ```less```. Unlike ```nano``` less is just a viewer, not an editor. It is particularly useful for viewing very large files, because it only shows them a few lines at a time. To check that your edit has worked and your ```.bash_profile``` file looks OK type in
 ```bash
 less .bash_profile
 ```
-If this was a bigger file you could the arrow keys to move up and down lines in the file. Check that the genomics path is there in the file. It should look something like this
+Check that the genomics path is there in the file (you may need to use the arrow key to move to the end of the file). It should look something like this
 ```
 # .bash_profile
 
@@ -119,7 +119,7 @@ What does ```z``` do?
 | q | exit less |
 
 
-To check that the setup worked we will need to log out of the hpc and then log in again. Log out of the working node first by typing ```logout``` and then ```logout``` again to exit sharc. 
+To check that the setup worked, we will need to log out of the hpc and then log in again. Log out of the working node first by typing ```logout``` and then ```logout``` again to exit sharc. 
 
 ## 3. Navigating, creating directories and moving files
 Log in again (starting a new ssh session) and start a new interactive session (```qrsh```). You should then see
@@ -145,7 +145,7 @@ Navigate into your new folder (hint ```cd```). The data that you are going to be
 ```bash
 cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2019/data/raw .
 ```
-The ```.``` here simply means "use the exisiting names". Because we were in the directory where we wanted to copy the files we didn't need to specify the path but this would do the same thing 
+The ```.``` here simply means "use the exisiting names". Because we were in the directory where we wanted to copy the files, we didn't need to specify the path but this would do the same thing: 
 ```bash
 cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2019/data/raw /fastdata/boXXX/.
 ```
