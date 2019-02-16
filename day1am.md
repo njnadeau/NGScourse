@@ -153,8 +153,11 @@ cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2019/data/raw /fastdata/bo
 ```
 Why do we need the ```-r``` (hint check ```man cp```)? What happens if you leave it off?
 
-Navigate into your new ```raw``` folder that should now be in your fastdata folder. This contains mutliple sequence read files generated from a single sample. Sequence data is now often generated like this and you may well get multiple read files back for each sample you send off for sequencing. 
-
+Navigate into your new ```raw``` folder that should now be in your fastdata folder. This contains mutliple sequence read files generated from a single sample. Sequence data is now often generated like this and you may well get multiple read files back for each sample you send off for sequencing. To move back up a level
+```bash
+cd ../
+```
+How would you move up 2 levels? What is another way of doing this?
 ## 4. Verifying the intergrity of your files and submitting batch jobs to the cluster
 As well as the sequence data files (which end in ```.sanfastq.gz```) there are also files that end in ```.md5```. List just the sequence files:
 ```bash
