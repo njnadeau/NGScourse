@@ -94,8 +94,14 @@ INDEX=$((SGE_TASK_ID-1))
 java -jar $ProgramPath/trimmomatic-0.38.jar PE -phred33 ${SAMPLE1[$INDEX]} ${SAMPLE2[$INDEX]} ${SAMPLE1[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE1[$INDEX]}.out_unpaired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_unpaired_50bp.fastq.gz ILLUMINACLIP:$ProgramPath/adatpers/TruSeq2-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 
 ```
-This script also runs in parallel but instead of splitting one job across several nodes it runs different jobs on each node (set by```#$ -t 1-3```), in our case running each of the 3 sets of paired end data on a different node. Again you need to make sure that the number of jobs you set up (```-t 1-3```) is the same as the number of files you have (```ls raw/60A/*_1.sanfastq.gz```)
+This script also runs in parallel but instead of splitting one job across several nodes it runs different jobs on each node (set by```#$ -t 1-3```), in our case running each of the 3 sets of paired end data on a different node. Again you need to make sure that the number of jobs you set up (```-t 1-3```) is the same as the number of files you have (```ls raw/60A/*_1.sanfastq.gz```).
 
+### Excercise
+Once this has run you should have 2 new sets of reads for each previous read, one set that is paired and one set that has become unparied since one of the reads as removed entirely. Move these files to a new directory using ```mv``` (hint, you can use ```*``` so you don't need to move each file individually). How many reads of each type are there?
+
+Run fastqc on these trimmed files to check that the quality has improved. 
+
+How have the proflies changed?
 
 
 
