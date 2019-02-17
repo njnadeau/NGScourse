@@ -108,5 +108,7 @@ How have the proflies changed?
 If you are waiting for your script to run and want something to do you can try the following exercise
 
 ## 3. Downloading data from the internet
+When you get data back from a sequencing centre you will often have to download it from their servers. You can do this direct to a directory on the hcp using the command ```wget```. If you have large files then you probably want to submit this as a job to the cluster. Check the manual for ```wget``` and then create a bash script to download the Heliconius melpomene reference genome from here http://download.lepbase.org/v4/sequence/Heliconius_melpomene_melpomene_Hmel2_-_scaffolds.fa.gz 
 
+Once it has dowloaded unzip it and view it. This is a fasta (rather than fastq) formatted file. What do you notice about the format?
 
