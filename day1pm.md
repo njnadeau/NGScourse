@@ -34,5 +34,30 @@ There should be the same number of reads in the forward and reverse files. Is th
 ## 2. Checking sequence quality
 We are going to use the program ```fastqc``` to assess the quality of our sequence data. We will submit this as a job to the cluster because it will take some time to run. You have been given the bash script, it is called ```fastqc.sh```. Open this with nano
 ```
+#!/bin/bash
+#$ -l h_rt=1:00:00
+#$ -l rmem=2G
+#$ -m bea
+#$ -j y
+#$ -o fastqc.log
+#$ -pe openmp 5
+#$ -M
+
+source /usr/local/extras/Genomics/.bashrc
+
+# the following sets up an input string containing all the files ending sanfastq.gz in raw/60A
+inputString=""
+space=" "
+for i in raw/60A/*.sanfastq.gz
+  do
+  inputString=$inputString$i$space
+  done
+
+fastqc -o fastqc_output -t 5 $inputString
+```
+As before, enter your email address. ```#$ -pe openmp 5``` tells the cluster to run this in parallel over 5 nodes. In the ```fastqc``` input the ```-t 5``` then tells the program it can split its job over 5 nodes. The 2 numbers need to be the same!  
+Before running this you will need to make a directory called ```fastqc_output```. 
+
+Once it has run (```qstat``` to check) you can check the ```fastqc.log``` to see that everything seems to have run OK (this is long so you might want to use ```tail``` to view the end or search for lines that say ```Analysis complete```) but if there are output files for every input file then it has probably run OK. The output is graphical so you will need to download it to your computer to view it. 
 
 
