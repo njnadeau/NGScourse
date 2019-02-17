@@ -60,4 +60,4 @@ Before running this you will need to make a directory called ```fastqc_output```
 
 Once it has run (```qstat``` to check) you can check the ```fastqc.log``` to see that everything seems to have run OK (this is long so you might want to use ```tail``` to view the end or search for lines that say ```Analysis complete```) but if there are output files for every input file then it has probably run OK. The output is graphical so you will need to download it to your computer to view it. 
 
-
+How many reads are in the files (do these match up with the counts you did)? Are there differences in quality between the forward and reverse reads?
