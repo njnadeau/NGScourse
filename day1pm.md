@@ -55,9 +55,13 @@ for i in raw/60A/*.sanfastq.gz
 
 fastqc -o fastqc_output -t 5 $inputString
 ```
-As before, enter your email address. ```#$ -pe openmp 5``` tells the cluster to run this in parallel over 5 nodes. In the ```fastqc``` input the ```-t 5``` then tells the program it can split its job over 5 nodes. The 2 numbers need to be the same!  
+As before, enter your email address. ```#$ -pe openmp 5``` tells the cluster to run this in parallel over 5 nodes. In the ```fastqc``` input the ```-t 5``` then tells the program it can split its job over 5 nodes. The 2 numbers need to be the same!
+This line ```source /usr/local/extras/Genomics/.bashrc``` tells it where to find the Genomics software repository, which we set up acces to in the morning. 
 Before running this you will need to make a directory called ```fastqc_output```. 
 
 Once it has run (```qstat``` to check) you can check the ```fastqc.log``` to see that everything seems to have run OK (this is long so you might want to use ```tail``` to view the end or search for lines that say ```Analysis complete```) but if there are output files for every input file then it has probably run OK. The output is graphical so you will need to download it to your computer to view it. 
 
 How many reads are in the files (do these match up with the counts you did)? Are there differences in quality between the forward and reverse reads?
+
+## 2. Trimming reads
+You will notice that the quality of the reads tends to fall off at the end. Also there seems to be some remaining adaptor, likely where the fragment length has been shorter than the read length. Both of these can be solved by trimming the reads. 
