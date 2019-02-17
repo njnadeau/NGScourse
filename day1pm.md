@@ -105,5 +105,8 @@ Run fastqc on these trimmed files to check that the quality has improved.
 
 How have the proflies changed?
 
+If you are waiting for your script to run and want something to do you can try the following exercise
+
+## 3. Downloading data from the internet
 
 
