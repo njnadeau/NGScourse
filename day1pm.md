@@ -69,11 +69,11 @@ You will notice that the quality of the reads tends to fall off at the end. Also
 #!/bin/bash
 #$ -l h_rt=2:00:00
 #$ -l rmem=2G
-##$ -m bea
+#$ -m bea
 #$ -j y
 #$ -o trimmomatic.log
-#$ -t 3
-##$ -M
+#$ -t 1-3
+#$ -M
 
 source /usr/local/extras/Genomics/.bashrc
 
@@ -94,7 +94,7 @@ INDEX=$((SGE_TASK_ID-1))
 java -jar $ProgramPath/trimmomatic-0.38.jar PE -phred33 ${SAMPLE1[$INDEX]} ${SAMPLE2[$INDEX]} ${SAMPLE1[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE1[$INDEX]}.out_unpaired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_unpaired_50bp.fastq.gz ILLUMINACLIP:$ProgramPath/adatpers/TruSeq2-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 
 ```
-This script also runs in parallel but instead of splitting on job across several nodes it run different jobs on each node, in our case running each of the 3 sets of paired end data we have on a different node. 
+This script also runs in parallel but instead of splitting one job across several nodes it runs different jobs on each node (set by```#$ -t 1-3```), in our case running each of the 3 sets of paired end data on a different node. Again you need to make sure that the number of jobs you set up (```-t 1-3```) is the same as the number of files you have (```ls raw/60A/*_1.sanfastq.gz```)
 
 
 
