@@ -110,7 +110,7 @@ If you are waiting for scripts to run and want something to do you can try the o
 ## 3. Merging sequence file
 Before aligning the sequence data to the reference genome we probably want to merge the multiple files from each individual (this is also a change to give the file nice names).
 ### Excercise
-Use ```zcat``` to merge together all the paired trimmed forward read files and all the paired trimmed reverse read file to generate a single forward read file called ```60A_1.fastq.gz``` and a single reverse read file called ```60A_2.fastq.gz```. Can you write a script that would scale this up if you had many samples each of which had multiple reads? *Be very careful* subsequent programs will only work if the forward and reverse reads are kept in the same order in the 2 files, so make sure you merge them in the same order. 
+Use ```zcat``` to merge together all the paired trimmed forward read files and all the paired trimmed reverse read files to generate a single forward read file called ```60A_1.fastq.gz``` and a single reverse read file called ```60A_2.fastq.gz```. Can you write a script that would scale this up if you had many samples each of which had multiple reads? *Be very careful* subsequent programs will only work if the forward and reverse reads are kept in the same order in the 2 files, so make sure you merge them in the same order. 
 
 ## 4. Downloading data from the internet
 When you get data back from a sequencing centre you will often have to download it from their servers. You can do this direct to a directory on the hcp using the command ```wget```. If you have large files then you probably want to submit this as a job to the cluster. 
