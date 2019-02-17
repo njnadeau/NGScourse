@@ -59,6 +59,8 @@ As before, enter your email address. ```#$ -pe openmp 5``` tells the cluster to 
 This line ```source /usr/local/extras/Genomics/.bashrc``` tells it where to find the Genomics software repository, which we set up acces to in the morning. 
 Before running this you will need to make a directory called ```fastqc_output```. 
 
+What do you notice when this is running (```qstat```)?
+
 Once it has run (```qstat``` to check) you can check the ```fastqc.log``` to see that everything seems to have run OK (this is long so you might want to use ```tail``` to view the end or search for lines that say ```Analysis complete```) but if there are output files for every input file then it has probably run OK. The output is graphical so you will need to download it to your computer to view it. 
 
 How many reads are in the files (do these match up with the counts you did)? Are there differences in quality between the forward and reverse reads?
