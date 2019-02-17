@@ -8,10 +8,23 @@ In this practical you will get to grips with handelling sequence data, assessing
 We will start by having a look at the sequence data files you downloaded this morning. Navigate to your fastdata directory where they are located. The files are compressed (ending in ```.gz```) so you can't view them directly with ```less```. You could extract them with ```gunzip``` but then they would take up much more space and this isn't necessary for the programs we will be using, because all of these can work on compressed data. Instead we can use ```zcat```, which can unzip files "on the fly" and writes the output to  the standard output (```stdout```). By default this is the terminal window, so if we used just ```zcat``` the whole thing gets written to the terminal window. If this happens by mistake don't panic! ```Ctrl c``` will stop it, although it might take a little time for your command to take effect, the node will already have read in a huge amount of data before your command is even registered! 
 
 Instead we can use ```|``` (called a pipe) to send the output to another program. In our case we can send it to ```less``` so we can control how we view the output
-```
+```bash
 zcat 151019_D00248_0127_AC7HJ7ANXX_7_TP-D7-006_TP-D5-008_1.sanfastq.gz | less
 ```
 One useful thing we can do within less is search by typing ```/``` followed by the string you want to find, for example ```/5843:36399``` will jump to the read in the file with that id. You can then continue scrolling up and down if you want to see the reads that come before and after it. 
 
 Another was to search is using ```grep```. This will find all the lines matching the string you specify and write them to ```stdout```. If you want to save these to another file you can do this with ```>```
+```bash
+zcat 151019_D00248_0127_AC7HJ7ANXX_7_TP-D7-006_TP-D5-008_1.sanfastq.gz | grep "@HISEQ:127:C7HJ7ANXX:7:1101:18" > subsetofreadnames.fastq
+```
+This writes the read names containing ```@HISEQ:127:C7HJ7ANXX:7:1101:18``` into a new file called ```subsetofreadnames.fastq```
+Of course in reality we would probably never want to do this because this file is not very useful on its own. What we might want to do is know who many reads there are that start ```@HISEQ:127:C7HJ7ANXX:7:1101:18```. We can do this us ```wc -l```, which counts the number fo lines a file. We can of course now run ```wc -l subsetofreadnames.fastq```, or we could skip the file writing stage
+```bash
+zcat 151019_D00248_0127_AC7HJ7ANXX_7_TP-D7-006_TP-D5-008_1.sanfastq.gz | grep "@HISEQ:127:C7HJ7ANXX:7:1101:18" | wc -l
+```
+Do these give the same answer? 
+
+Remove ```subsetofreadnames.fastq```
+
+
 
