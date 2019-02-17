@@ -26,5 +26,10 @@ Do these give the same answer?
 
 Remove ```subsetofreadnames.fastq```
 
+### Excercise
+Every sequenced fragment has a forward read and a reverse read (this is called paired-end sequencing). These two reads are contained in different files that have the same name but end in ```_1``` and ```_2``` respectively. Have a look at the start of two of the sequence files that contain the forward and reverse reads. Can you tell which reads are from the same fragment? Pick one read from one of the files and see if you can find its partner in the other file.
+
+There should be the same number of reads in the forward and reverse files. Is this the case?
+
 
 
