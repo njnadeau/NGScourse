@@ -26,7 +26,7 @@ Do these give the same answer?
 
 Remove ```subsetofreadnames.fastq```
 
-### Excercise
+### Exercise
 Every sequenced fragment has a forward read and a reverse read (this is called paired-end sequencing). These two reads are contained in different files that have the same name but end in ```_1``` and ```_2``` respectively. Have a look at the start of two of the sequence files that contain the forward and reverse reads. Can you tell which reads are from the same fragment? Pick one read from one of the files and see if you can find its partner in the other file.
 
 There should be the same number of reads in the forward and reverse files. Is this the case?
@@ -98,7 +98,7 @@ java -jar $ProgramPath/trimmomatic-0.38.jar PE -phred33 ${SAMPLE1[$INDEX]} ${SAM
 ```
 This script also runs in parallel but instead of splitting one job across several nodes it runs different jobs on each node (set by```#$ -t 1-3```), in our case running each of the 3 sets of paired end data on a different node. Again you need to make sure that the number of jobs you set up (```-t 1-3```) is the same as the number of files you have (```ls raw/60A/*_1.sanfastq.gz```).
 
-### Excercise
+### Exercise
 Once this has run you should have 2 new sets of reads for each previous read, one set that is paired and one set that has become unparied since one of the reads as removed entirely. Move these files to a new directory using ```mv``` (hint, you can use ```*``` so you don't need to move each file individually). How many reads of each type are there?
 
 Run fastqc on these trimmed files to check that the quality has improved. 
@@ -109,12 +109,12 @@ If you are waiting for scripts to run and want something to do you can try the o
 
 ## 3. Merging sequence file
 Before aligning the sequence data to the reference genome we probably want to merge the multiple files from each individual (this is also a change to give the file nice names).
-### Excercise
+### Exercise
 Use ```zcat``` to merge together all the paired trimmed forward read files and all the paired trimmed reverse read files to generate a single forward read file called ```60A_1.fastq.gz``` and a single reverse read file called ```60A_2.fastq.gz```. Can you write a script that would scale this up if you had many samples each of which had multiple reads? *Be very careful!* Subsequent programs will only work if the forward and reverse reads are kept in the same order in the 2 files, so make sure you merge them in the same order. 
 
 ## 4. Downloading data from the internet and fasta format
 When you get data back from a sequencing centre you will often have to download it from their servers. You can do this direct to a directory on the hpc using the command ```wget```. If you have large files then you probably want to submit this as a job to the cluster. 
-### Excercise
+### Exercise
 Check the manual for ```wget``` and then create a bash script to download the Heliconius melpomene reference genome from here http://download.lepbase.org/v4/sequence/Heliconius_melpomene_melpomene_Hmel2_-_scaffolds.fa.gz 
 
 Once it has dowloaded unzip it and view it. This is a fasta (rather than fastq) file. What do you notice about the format?
