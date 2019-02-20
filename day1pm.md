@@ -65,7 +65,7 @@ Once it has run (```qstat``` to check) you can check the ```fastqc.log``` to see
 
 How many reads are in the files (do these match up with the counts you did)? Are there differences in quality between the forward and reverse reads?
 
-## 2. Trimming reads
+## 3. Trimming reads
 You will notice that the quality of the reads tends to fall off at the end. Also there seems to be some remaining adaptor, likely where the fragment length has been shorter than the read length. Both of these can be solved by trimming the reads. You have been given a bask script ```trimmomatic.sh``` that uses the program ```trimmomatic``` to trim the reads. Open this script and edit it to add your email address
 ```
 #!/bin/bash
@@ -107,12 +107,12 @@ How have the profiles changed?
 
 If you are waiting for scripts to run and want something to do you can try the one or both of the next exercises while you wait.
 
-## 3. Merging sequence file
+## 4. Merging sequence file
 Before aligning the sequence data to the reference genome we probably want to merge the multiple files from each individual (this is also a change to give the file nice names).
 ### Exercise
 Use ```zcat``` to merge together all the paired trimmed forward read files and all the paired trimmed reverse read files to generate a single forward read file called ```60A_1.fastq.gz``` and a single reverse read file called ```60A_2.fastq.gz```. Can you write a script that would scale this up if you had many samples each of which had multiple reads? *Be very careful!* Subsequent programs will only work if the forward and reverse reads are kept in the same order in the 2 files, so make sure you merge them in the same order. 
 
-## 4. Downloading data from the internet and fasta format
+## 5. Downloading data from the internet and fasta format
 When you get data back from a sequencing centre you will often have to download it from their servers. You can do this direct to a directory on the hpc using the command ```wget```. If you have large files then you probably want to submit this as a job to the cluster. 
 ### Exercise
 Check the manual for ```wget``` and then create a bash script to download the Heliconius melpomene reference genome from here http://download.lepbase.org/v4/sequence/Heliconius_melpomene_melpomene_Hmel2_-_scaffolds.fa.gz 
