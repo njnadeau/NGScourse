@@ -40,7 +40,7 @@ We are going to use the program ```fastqc``` to assess the quality of our sequen
 #$ -m bea
 #$ -j y
 #$ -o fastqc.log
-#$ -pe openmp 5
+#$ -pe smp 4
 #$ -M
 
 source /usr/local/extras/Genomics/.bashrc
@@ -55,7 +55,7 @@ for i in raw/60A/*.sanfastq.gz
 
 fastqc -o fastqc_output -t 5 $inputString
 ```
-As before, enter your email address. ```#$ -pe openmp 5``` tells the cluster to run this in parallel over 5 nodes. In the ```fastqc``` input the ```-t 5``` then tells the program it can split its job over 5 nodes. The 2 numbers need to be the same!
+As before, enter your email address. ```#$ -pe smp 4``` tells the cluster to run this in parallel over 5 nodes. In the ```fastqc``` input the ```-t 4``` then tells the program it can split its job over 5 nodes. The 2 numbers need to be the same!
 This line ```source /usr/local/extras/Genomics/.bashrc``` tells it where to find the Genomics software repository, which we set up acces to in the morning. 
 Before running this you will need to make a directory called ```fastqc_output```. 
 
