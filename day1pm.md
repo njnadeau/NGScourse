@@ -53,7 +53,7 @@ for i in raw/60A/*.sanfastq.gz
   inputString=$inputString$i$space
   done
 
-fastqc -o fastqc_output -t 5 $inputString
+fastqc -o fastqc_output -t 4 $inputString
 ```
 As before, enter your email address. ```#$ -pe smp 4``` tells the cluster to run this in parallel over 5 nodes. In the ```fastqc``` input the ```-t 4``` then tells the program it can split its job over 5 nodes. The 2 numbers need to be the same!
 This line ```source /usr/local/extras/Genomics/.bashrc``` tells it where to find the Genomics software repository, which we set up acces to in the morning. 
