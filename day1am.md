@@ -1,6 +1,6 @@
 *APS Advanced Stats Delivery*
 # Introduction to the HPC and NGS data - day 1 morning
-#### Nicola Nadeau, Alison Wright, Victor Soria-Carrasco
+#### Nicola Nadeau, Alison Wright, Helen Hipperson
 
 The aim of this practical is to get you started using the HPC and looking at some NGS data
 
@@ -143,13 +143,13 @@ Create a new directory here that is named your username (ie. boxxx, replacing th
 ```bash
 mkdir boXXX
 ```
-Navigate into your new folder (hint ```cd```). The data that you are going to be using is in the folder ```/usr/local/extras/Genomics/workshops/NGS_AdvSta_2019/day1```. View the contents of this folder (hint ```ls```). You will see there is a folder here called ```raw```, view the contents of this folder. We want to copy the whole of the ```raw``` directory to your fastdata folder. 
+Navigate into your new folder (hint ```cd```). The data that you are going to be using is in the folder ```/usr/local/extras/Genomics/workshops/NGS_AdvSta_2020/day1```. View the contents of this folder (hint ```ls```). You will see there is a folder here called ```raw```, view the contents of this folder. We want to copy the whole of the ```raw``` directory to your fastdata folder. 
 ```bash
-cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2019/day1 .
+cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2020/day1 .
 ```
 The ```.``` here simply means "use the exisiting names". Because we were in the directory where we wanted to copy the files, we didn't need to specify the path but this would do the same thing: 
 ```bash
-cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2019/day1 /fastdata/boXXX/.
+cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2020/day1 /fastdata/boXXX/.
 ```
 Why do we need the ```-r``` (hint check ```man cp```)? What happens if you leave it off?
 
