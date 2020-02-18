@@ -1,5 +1,5 @@
 *APS Advanced Stats Delivery*
-# Introduction to the HPC and NGS data - day 1 morning
+# Introduction to the HPC and NGS data - day 1 morning part 1
 #### Nicola Nadeau, Alison Wright, Helen Hipperson
 
 The aim of this practical is to get you started using the HPC and looking at some NGS data
