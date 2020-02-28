@@ -223,4 +223,5 @@ You can compare the values you calculated to the ones calculated by the sequenci
 Try to use the command ```cat``` to view all the ```.md5``` files in ```raw/60A``` at once (hint, you can use ```*``` to save typing out every file name)
 
 
-
+Return to the main course page:
+https://github.com/visoca/AdvDataAna-introNGS
