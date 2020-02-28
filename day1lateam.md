@@ -1,4 +1,4 @@
-*APS Advanced Stats Delivery*
+*APS Advanced Stats Delivery* https://github.com/visoca/AdvDataAna-introNGS
 # Sequence data formats and assessing sequence quality - day 1 morning part 2
 #### Nicola Nadeau, Alison Wright, Helen Hipperson
 
