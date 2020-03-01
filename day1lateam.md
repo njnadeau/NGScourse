@@ -56,7 +56,7 @@ for i in raw/60A/*.sanfastq.gz
 fastqc -o fastqc_output -t 4 $inputString
 ```
 As before, enter your email address. ```#$ -pe smp 4``` tells the cluster to run this in parallel over 4 nodes. In the ```fastqc``` input the ```-t 4``` then tells the program it can split its job over 4 nodes. The 2 numbers need to be the same!
-This line ```source /usr/local/extras/Genomics/.bashrc``` tells it where to find the Genomics software repository, which we set up acces to in the morning. 
+This line ```source /usr/local/extras/Genomics/.bashrc``` tells it where to find the Genomics Software Repository, which we set up access to in the morning. 
 Before running this you will need to make a directory called ```fastqc_output```. 
 
 What do you notice when this is running (```qstat```)?
@@ -66,7 +66,7 @@ Once it has run (```qstat``` to check) you can check the ```fastqc.log``` to see
 How many reads are in the files (do these match up with the counts you did)? Are there differences in quality between the forward and reverse reads?
 
 ## 3. Trimming reads
-You will notice that the quality of the reads tends to fall off at the end. Also there seems to be some remaining adaptor, likely where the fragment length has been shorter than the read length. Both of these can be solved by trimming the reads. You have been given a bask script ```trimmomatic.sh``` that uses the program ```trimmomatic``` to trim the reads. Open this script and edit it to add your email address
+You will notice that the quality of the reads tends to fall off at the end. Also there seems to be some remaining adaptor, likely where the fragment length has been shorter than the read length. Both of these can be solved by trimming the reads. You have been given a bash script ```trimmomatic.sh``` that uses the program ```trimmomatic``` to trim the reads. Open this script and edit it to add your email address
 ```
 #!/bin/bash
 #$ -l h_rt=2:00:00
@@ -96,6 +96,14 @@ INDEX=$((SGE_TASK_ID-1))
 java -jar $ProgramPath/trimmomatic-0.38.jar PE -phred33 ${SAMPLE1[$INDEX]} ${SAMPLE2[$INDEX]} ${SAMPLE1[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE1[$INDEX]}.out_unpaired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_unpaired_50bp.fastq.gz ILLUMINACLIP:$ProgramPath/adatpers/TruSeq2-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 
 ```
+There are many different ways to trim the data with Trimmomatic. This script uses the parameters recommended by Trimmomatic (see below for explanation). You may have to tweak these parameters in reality and see which work best.
+```
+Remove adapters (ILLUMINACLIP:TruSeq2-PE.fa:2:30:10)
+Remove leading low quality or N bases (below quality 3) (LEADING:3)
+Remove trailing low quality or N bases (below quality 3) (TRAILING:3)
+Scan the read with a 4-base wide sliding window, cutting when the average quality per base drops below 15 (SLIDINGWINDOW:4:15)
+Drop reads below the 36 bases long (MINLEN:36)
+```
 This script also runs in parallel but instead of splitting one job across several nodes it runs different jobs on each node (set by```#$ -t 1-3```), in our case running each of the 3 sets of paired end data on a different node. Again you need to make sure that the number of jobs you set up (```-t 1-3```) is the same as the number of files you have (```ls raw/60A/*_1.sanfastq.gz```).
 
 ### Exercise
@@ -108,7 +116,7 @@ How have the profiles changed?
 If you are waiting for scripts to run and want something to do you can try the one or both of the next exercises while you wait.
 
 ## 4. Merging sequence file
-Before aligning the sequence data to the reference genome we probably want to merge the multiple files from each individual (this is also a change to give the file nice names).
+Before aligning the sequence data to the reference genome we probably want to merge the multiple files from each individual (this is also a chance to give the file clearer names).
 ### Exercise
 Use ```zcat``` to merge together all the paired trimmed forward read files and all the paired trimmed reverse read files to generate a single forward read file called ```60A_1.fastq.gz``` and a single reverse read file called ```60A_2.fastq.gz```. Can you write a script that would scale this up to merge the reads for the 4 samples in ```raw```, with each runing in parallel on a separate core? *Be very careful!* Subsequent programs will only work if the forward and reverse reads are kept in the same order in the 2 files, so make sure you merge them in the same order. Hint: Try using the ```trimmomatic.sh``` script as a starting point. Using ```*_1.sanfastq.gz``` and ```*_2.sanfastq.gz``` will make sure the read files are listed in the same order.
 
