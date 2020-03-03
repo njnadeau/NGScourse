@@ -46,16 +46,8 @@ ls -a
 The ```-a``` switch makes ```ls``` show hidden files, which start with a dot in their file name.
 You might notice that the contents of the directory you are currently in are also displayed on the right hand panel in MobaXterm and you can use the icons and address bar to navigate the directories in sharc. 
 
-We are going to edit the file ```.bash_profile``` to configure your account so that you have access to the Genomics Software Repository that we will be using. The Genomics Software Repository is basically a collection of ready-to-use programs for NGS and population genetic/genomic analysis in a shared folder. Its main advantage is that it removes the necessity for the user to install commonly used programs in their home folder. More info about the software available can found here: http://soria-carrasco.staff.shef.ac.uk/softrepo/.
+We are going to edit the file ```.bash_profile``` to configure your account. The .bash_profile is a configuration file for configuring user environments e.g. it contains all the startup configuration and preferences for your command line interface. 
 
-You can have access by adding the following to the end of your bash profile. The .bash_profile is a configuration file for configuring user environments e.g. it contains all the startup configuration and preferences for your command line interface.
-
-```
-if [[ -e '/usr/local/extras/Genomics' ]]; 
-then
-    source /usr/local/extras/Genomics/.bashrc
-fi
-```
 To do this we will use the program ```nano```, which is a simple text editor that can be used from the command line
 ```bash
 nano .bash_profile
@@ -74,7 +66,16 @@ fi
 PATH=$PATH:$HOME/bin
 
 ```
-Copy the text you want to insert from above and paste it at the end. You will need to use the arrow buttons to move the cursor within the file (the mouse doesn't work here) and the right mouse button can be used to paste to the command line (^V doesn't work in Linux). Usefully, you will see there is information at the bottom of the screen that tells you how to save the file (ctrl o, save it with the same name) and exit (ctrl x).
+We can edit this file to give you access to the Genomics Software Repository that we will be using. The Genomics Software Repository is basically a collection of ready-to-use programs for NGS and population genetic/genomic analysis in a shared folder. Its main advantage is that it removes the necessity for the user to install commonly used programs in their home folder. More info about the software available can found here: http://soria-carrasco.staff.shef.ac.uk/softrepo/.
+
+Copy the text below and paste it at the end of your bash profile. You will need to use the arrow buttons to move the cursor within the file (the mouse doesn't work here) and the right mouse button can be used to paste to the command line (^V doesn't work in Linux). Usefully, you will see there is information at the bottom of the screen that tells you how to save the file (ctrl o, save it with the same name) and exit (ctrl x). This line of code will give you access to the Genomics Software Repository.
+
+```
+if [[ -e '/usr/local/extras/Genomics' ]]; 
+then
+    source /usr/local/extras/Genomics/.bashrc
+fi
+```
 
 Another way of viewing the content of a text file is with ```less```. Unlike ```nano``` less is just a viewer, not an editor. It is particularly useful for viewing very large files, because it only shows them a few lines at a time. To check that your edit has worked and your ```.bash_profile``` file looks OK type in
 ```bash
@@ -160,6 +161,7 @@ Navigate into the directory you just copied (```day1```) that should now be in y
 cd ../
 ```
 How would you move up 2 levels? What is another way of doing this?
+
 ## 4. Verifying the intergrity of your files and submitting batch jobs to the cluster
 As well as the sequence data files (which end in ```.sanfastq.gz```) there are also files that end in ```.md5```. List just the sequence files:
 ```bash
@@ -212,7 +214,7 @@ job-ID  prior   name       user         state submit/start at     queue         
 3528787 0.02478 QRLOGIN    bo1nn        r     02/16/2019 15:55:41 interactive.q@sharc-node003.sh     1
 3528789 0.00003 MD5calc.sh bo1nn        r     02/16/2019 15:58:35 all.q@sharc-node073.shef.ac.uk     1
 ```
-The first job is your interactive session, the second is the job you just submitted. ```r``` is good and means it is running. Check the manual page for ```qstat``` to see what the other state codes mean. You should also receive an email to tell you that your job has started (end when it has ended). 
+The first job is your interactive session, the second is the job you just submitted. ```r``` is good and means it is running. ```qw``` means that the job is still queueing and hasn't started to run yet. ```eqw``` means that there is an error in the queue and your job has a problem. Check the manual page for ```qstat``` to see what the other state codes mean. You should also receive an email to tell you that your job has started (end when it has ended). 
 
 Once the job has ended you should find that you have two new files in your directory. View the contents of these (hint ```less```). Hopefully the one ending ```.errorlog``` will be empty and ```MD5.txt``` will contain the calculated md5 sum values for each sequence file. To keep things tidy you can delete the ```.errorlog``` file
 ```bash
