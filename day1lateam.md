@@ -98,11 +98,11 @@ java -jar $ProgramPath/trimmomatic-0.38.jar PE -phred33 ${SAMPLE1[$INDEX]} ${SAM
 ```
 There are many different ways to trim the data with Trimmomatic. This script uses the parameters recommended by Trimmomatic (see below for explanation). You may have to tweak these parameters in reality and see which work best.
 ```
-Remove adapters (ILLUMINACLIP:TruSeq2-PE.fa:2:30:10)
-Remove leading low quality or N bases (below quality 3) (LEADING:3)
-Remove trailing low quality or N bases (below quality 3) (TRAILING:3)
-Scan the read with a 4-base wide sliding window, cutting when the average quality per base drops below 15 (SLIDINGWINDOW:4:15)
-Drop reads below the 36 bases long (MINLEN:36)
+ILLUMINACLIP:TruSeq2-PE.fa:2:30:10 means remove adapters
+LEADING:3 means remove leading low quality or N bases below quality 3
+TRAILING:3 means remove trailing low quality or N bases below quality 3
+SLIDINGWINDOW:4:15 means scan the read with a 4-base wide sliding window, cutting when the average quality per base drops below 15 
+MINLEN:3 means drop reads below the 36 bases long
 ```
 This script also runs in parallel but instead of splitting one job across several nodes it runs different jobs on each node (set by```#$ -t 1-3```), in our case running each of the 3 sets of paired end data on a different node. Again you need to make sure that the number of jobs you set up (```-t 1-3```) is the same as the number of files you have (```ls raw/60A/*_1.sanfastq.gz```).
 
