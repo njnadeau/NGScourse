@@ -1,6 +1,6 @@
 *APS Advanced Stats Delivery* https://github.com/visoca/AdvDataAna-introNGS
 # Sequence data formats and assessing sequence quality - day 1 morning part 2
-#### Nicola Nadeau, Alison Wright, Helen Hipperson
+#### Nicola Nadeau, Alison Wright
 
 In this practical you will get to grips with handelling sequence data, assessing its quality and trimming reads.
 
