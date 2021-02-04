@@ -1,6 +1,6 @@
 *APS Advanced Stats Delivery*
 # Introduction to the HPC and NGS data - day 1 morning part 1
-#### Nicola Nadeau, Alison Wright, Helen Hipperson
+#### Nicola Nadeau, Alison Wright
 
 The aim of this practical is to get you started using the HPC and looking at some NGS data
 
@@ -188,8 +188,8 @@ Open it with ```nano```
 
  for i in raw/60A/*.sanfastq.gz; do md5sum $i; done
 ```
-The lines starting with ```#$``` set various options deterning how the job will run in the cluster. Check what these mean here:
-https://www.sheffield.ac.uk/cics/research/hpc/sharc/batch
+The lines starting with ```#$``` set various options deterning how the job will run in the cluster. Check what these mean here (Sharc uses SGE Commands):
+https://docs.hpc.shef.ac.uk/en/latest/hpc/scheduler/submit.html#scheduler-options
 
 The ```#$ -m bea``` and ```#$ -M``` options mean that it will send an email when the script starts, stops or aborts. You need to add your email address after the ```#$ -M``` option. The save the file and exit.
 
