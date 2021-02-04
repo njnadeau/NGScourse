@@ -1,4 +1,4 @@
-*APS Advanced Stats Delivery* https://github.com/visoca/AdvDataAna-introNGS
+*APS Advanced Stats Delivery* https://github.com/njnadeau/AdvDataAna-introNGS
 # Sequence data formats and assessing sequence quality - day 1 morning part 2
 #### Nicola Nadeau, Alison Wright
 
@@ -127,4 +127,4 @@ Check the manual for ```wget``` and then create a bash script to download the He
 
 Once it has dowloaded unzip it and view it. This is a fasta (rather than fastq) file. What do you notice about the format?
 
-Return to main course page: https://github.com/visoca/AdvDataAna-introNGS
+Return to main course page:https://github.com/njnadeau/AdvDataAna-introNGS
