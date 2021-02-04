@@ -226,4 +226,4 @@ Try to use the command ```cat``` to view all the ```.md5``` files in ```raw/60A`
 
 
 Return to the main course page:
-https://github.com/visoca/AdvDataAna-introNGS
+https://github.com/njnadeau/AdvDataAna-introNGS
