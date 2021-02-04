@@ -11,7 +11,9 @@ Instead we can use ```|``` (called a pipe) to send the output to another program
 ```bash
 zcat 151019_D00248_0127_AC7HJ7ANXX_7_TP-D7-006_TP-D5-008_1.sanfastq.gz | less
 ```
-One useful thing we can do within less is search by typing ```/``` followed by the string you want to find, for example ```/5843:36399``` will jump to the read in the file with that id. You can then continue scrolling up and down if you want to see the reads that come before and after it. 
+Other useful commands for viewing part of a large text file are ```head``` and ```tail```. Try these out or have a look at the ```man``` for them.
+
+One useful thing we can do within ```less``` is search by typing ```/``` followed by the string you want to find, for example ```/5843:36399``` will jump to the read in the file with that id. You can then continue scrolling up and down if you want to see the reads that come before and after it. 
 
 Another was to search is using ```grep```. This will find all the lines matching the string you specify and write them to ```stdout```. If you want to save these to another file you can do this with ```>```
 ```bash
