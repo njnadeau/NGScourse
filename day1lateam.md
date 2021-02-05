@@ -33,7 +33,7 @@ Every sequenced fragment has a forward read and a reverse read (this is called p
 
 There should be the same number of reads in the forward and reverse files. Is this the case?
 
-## 2. Checking sequence quality
+## 2. Checking sequence quality - Parallelisation using shared memory (SMP)
 We are going to use the program ```fastqc``` to assess the quality of our sequence data. We will submit this as a job to the cluster because it will take some time to run. You have been given the bash script, it is called ```fastqc.sh```. Open this with nano
 ```
 #!/bin/bash
