@@ -57,7 +57,7 @@ for i in raw/60A/*.sanfastq.gz
 
 fastqc -o fastqc_output -t 4 $inputString
 ```
-As before, enter your email address. ```#$ -pe smp 4``` tells the cluster to run this in parallel over 4 nodes. In the ```fastqc``` input the ```-t 4``` then tells the program it can split its job over 4 nodes. The 2 numbers need to be the same!
+As before, enter your email address. ```#$ -pe smp 4``` tells the cluster to run this in parallel over 4 nodes, using shared memory parallelism (SMP). You can read more about this [here] https://docs.hpc.shef.ac.uk/en/latest/parallel/SMP.html. In the ```fastqc``` input the ```-t 4``` then tells the program it can split its job over 4 nodes. The 2 numbers need to be the same!
 This line ```source /usr/local/extras/Genomics/.bashrc``` tells it where to find the Genomics Software Repository, which we set up access to in the morning. 
 Before running this you will need to make a directory called ```fastqc_output```. 
 
