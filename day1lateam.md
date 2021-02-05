@@ -57,7 +57,7 @@ for i in raw/60A/*.sanfastq.gz
 
 fastqc -o fastqc_output -t 4 $inputString
 ```
-As before, enter your email address. ```#$ -pe smp 4``` tells the cluster to run this in parallel over 4 nodes, using shared memory parallelism (SMP). You can read more about this [here] https://docs.hpc.shef.ac.uk/en/latest/parallel/SMP.html. In the ```fastqc``` input the ```-t 4``` then tells the program it can split its job over 4 nodes. The 2 numbers need to be the same!
+As before, enter your email address. ```#$ -pe smp 4``` tells the cluster to run this in parallel over 4 nodes, using shared memory parallelism (SMP). You can read more about this [here](https://docs.hpc.shef.ac.uk/en/latest/parallel/SMP.html). In the ```fastqc``` input the ```-t 4``` then tells the program it can split its job over 4 nodes. The 2 numbers (-pe and -t) need to be the same!
 This line ```source /usr/local/extras/Genomics/.bashrc``` tells it where to find the Genomics Software Repository, which we set up access to in the morning. 
 Before running this you will need to make a directory called ```fastqc_output```. 
 
@@ -67,7 +67,7 @@ Once it has run (```qstat``` to check) you can check the ```fastqc.log``` to see
 
 How many reads are in the files (do these match up with the counts you did)? Are there differences in quality between the forward and reverse reads?
 
-## 3. Trimming reads
+## 3. Trimming reads - Parallelisation using array jobs
 You will notice that the quality of the reads tends to fall off at the end. Also there seems to be some remaining adaptor, likely where the fragment length has been shorter than the read length. Both of these can be solved by trimming the reads. You have been given a bash script ```trimmomatic.sh``` that uses the program ```trimmomatic``` to trim the reads. Open this script and edit it to add your email address
 ```
 #!/bin/bash
@@ -106,7 +106,7 @@ Remove trailing low quality or N bases (below quality 3) (TRAILING:3)
 Scan the read with a 4-base wide sliding window, cutting when the average quality per base drops below 15 (SLIDINGWINDOW:4:15)
 Drop reads below the 36 bases long (MINLEN:36)
 ```
-This script also runs in parallel but instead of splitting one job across several nodes it runs different jobs on each node (set by```#$ -t 1-3```), in our case running each of the 3 sets of paired end data on a different node. Again you need to make sure that the number of jobs you set up (```-t 1-3```) is the same as the number of files you have (```ls raw/60A/*_1.sanfastq.gz```).
+This script also runs in parallel but instead of splitting one job across several nodes it runs different jobs on each node (set by```#$ -t 1-3```), in our case running each of the 3 sets of paired end data on a different node. Again you need to make sure that the number of jobs you set up (```-t 1-3```) is the same as the number of files you have (```ls raw/60A/*_1.sanfastq.gz```). This is called and array job, you can read more about these [here](https://docs.hpc.shef.ac.uk/en/latest/parallel/JobArray.html)
 
 ### Exercise
 Once this has run you should have 2 new sets of reads for each previous read, one set that is paired and one set that has become unparied since one of the reads as removed entirely. Move these files to a new directory using ```mv``` (hint, you can use ```*``` so you don't need to move each file individually). How many reads of each type are there?
