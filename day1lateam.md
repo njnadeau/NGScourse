@@ -61,8 +61,6 @@ As before, enter your email address. ```#$ -pe smp 4``` tells the cluster to run
 This line ```source /usr/local/extras/Genomics/.bashrc``` tells it where to find the Genomics Software Repository, which we set up access to in the morning. 
 Before running this you will need to make a directory called ```fastqc_output```. 
 
-What do you notice when this is running (```qstat```)?
-
 Once it has run (```qstat``` to check) you can check the ```fastqc.log``` to see that everything seems to have run OK (this is long so you might want to use ```tail``` to view the end or search for lines that say ```Analysis complete```) but if there are output files for every input file then it has probably run OK. The output is graphical so you will need to download it to your computer to view it. 
 
 How many reads are in the files (do these match up with the counts you did)? Are there differences in quality between the forward and reverse reads?
@@ -107,6 +105,8 @@ Scan the read with a 4-base wide sliding window, cutting when the average qualit
 Drop reads below the 36 bases long (MINLEN:36)
 ```
 This script also runs in parallel but instead of splitting one job across several nodes it runs different jobs on each node (set by```#$ -t 1-3```), in our case running each of the 3 sets of paired end data on a different node. Again you need to make sure that the number of jobs you set up (```-t 1-3```) is the same as the number of files you have (```ls raw/60A/*_1.sanfastq.gz```). This is called and array job, you can read more about these [here](https://docs.hpc.shef.ac.uk/en/latest/parallel/JobArray.html)
+
+What do you notice when this is running (```qstat```)?
 
 ### Exercise
 Once this has run you should have 2 new sets of reads for each previous read, one set that is paired and one set that has become unparied since one of the reads as removed entirely. Move these files to a new directory using ```mv``` (hint, you can use ```*``` so you don't need to move each file individually). How many reads of each type are there?
