@@ -145,7 +145,7 @@ Create a new directory here that is named your username (ie. boxxx, replacing th
 ```bash
 mkdir boXXX
 ```
-Navigate into your new folder (hint ```cd```). The data that you are going to be using is in the folder ```/usr/local/extras/Genomics/workshops/NGS_AdvSta_2020/day1```. View the contents of this folder (hint ```ls```). You will see there is a folder here called ```raw```, view the contents of this folder. We want to copy the whole of the ```raw``` directory to your fastdata folder. 
+Navigate into your new folder (hint ```cd```). The data that you are going to be using is in the folder ```/usr/local/extras/Genomics/workshops/NGS_AdvSta_2020/day1```. View the contents of this folder (hint ```ls```). You will see there is a folder here called ```raw```, view the contents of this folder. We want to copy the whole of the ```day1``` directory to your fastdata folder. This may take a couple of minutes, don't expect it to finish immediately.
 ```bash
 cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2020/day1 .
 ```
@@ -155,7 +155,7 @@ cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2020/day1 /fastdata/boXXX/
 ```
 Why do we need the ```-r``` (hint check ```man cp```)? What happens if you leave it off?
 
-Navigate into the directory you just copied (```day1```) that should now be in your fastdata folder. This contains a folder called ```raw```, which contains mutliple sequence read files generated from a single sample (```60A```). Sequence data is  often generated like this and you may well get multiple read files back for each sample you send off for sequencing. To move back up a level
+Navigate into the directory you just copied (```day1```) that should now be in your fastdata folder. This contains a folder called ```raw```, which contains folders containing mutliple sequence read files generated from a single sample (```60A```). Sequence data is  often generated like this and you may well get multiple read files back for each sample you send off for sequencing. To move back up a level
 ```bash
 cd ../
 ```
