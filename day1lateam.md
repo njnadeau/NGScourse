@@ -101,7 +101,7 @@ INDEX=$((SGE_TASK_ID-1))
 
 # run trimmomatic on the 3 sets
 
-java -jar $ProgramPath/trimmomatic-0.38.jar PE -phred33 ${SAMPLE1[$INDEX]} ${SAMPLE2[$INDEX]} ${SAMPLE1[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE1[$INDEX]}.out_unpaired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_unpaired_50bp.fastq.gz ILLUMINACLIP:$ProgramPath/adatpers/TruSeq2-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+java -jar $ProgramPath/trimmomatic-0.38.jar PE -phred33 ${SAMPLE1[$INDEX]} ${SAMPLE2[$INDEX]} ${SAMPLE1[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE1[$INDEX]}.out_unpaired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_unpaired_50bp.fastq.gz ILLUMINACLIP:$ProgramPath/adapters/TruSeq2-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 
 ```
 There are many different ways to trim the data with Trimmomatic. This script uses the parameters recommended by Trimmomatic (see below for explanation). You may have to tweak these parameters in reality and see which work best.
