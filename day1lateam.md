@@ -65,7 +65,7 @@ fastqc -o fastqc_output -t 4 $inputString
 ```
 As before, enter your email address. ```#$ -pe smp 4``` tells the cluster to run this in parallel over 4 nodes, using shared memory parallelism (SMP). You can read more about this [here](https://docs.hpc.shef.ac.uk/en/latest/parallel/SMP.html). In the ```fastqc``` input the ```-t 4``` then tells the program it can split its job over 4 nodes. The 2 numbers (-pe and -t) need to be the same!
 This line ```source /usr/local/extras/Genomics/.bashrc``` tells it where to find the Genomics Software Repository, which we set up access to in the morning. 
-Before running this you will need to make a directory called ```fastqc_output```. 
+Before running this you will need to make a directory called ```fastqc_output``` in the day1 directory (which should also contain your fastqc.sh script). 
 
 Once it has run (```qstat``` to check) you can check the ```fastqc.log``` to see that everything seems to have run OK (this is long so you might want to use ```tail``` to view the end or search for lines that say ```Analysis complete```) but if there are output files for every input file then it has probably run OK. The output is graphical so you will need to download it to your computer to view it. 
 
