@@ -41,7 +41,7 @@ There should be the same number of reads in the forward and reverse files. Is th
 We are going to use the program ```fastqc``` to assess the quality of our sequence data. We will submit this as a job to the cluster because it will take some time to run. You have been given the bash script, it is called ```fastqc.sh```. Open this with nano
 ```
 #!/bin/bash
-#$ -l h_rt=1:00:00
+#$ -l h_rt=0:30:00
 #$ -l rmem=2G
 #$ -m bea
 #$ -j y
@@ -75,7 +75,7 @@ How many reads are in the files (do these match up with the counts you did)? Are
 You will notice that the quality of the reads tends to fall off at the end. Also there seems to be some remaining adaptor, likely where the fragment length has been shorter than the read length. Both of these can be solved by trimming the reads. You have been given a bash script ```trimmomatic.sh``` that uses the program ```trimmomatic``` to trim the reads. Open this script and edit it to add your email address
 ```
 #!/bin/bash
-#$ -l h_rt=2:00:00
+#$ -l h_rt=0:30:00
 #$ -l rmem=2G
 #$ -m bea
 #$ -j y
