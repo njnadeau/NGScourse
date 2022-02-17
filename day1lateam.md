@@ -80,8 +80,6 @@ You will notice that the quality of the reads tends to fall off at the end. Also
 #$ -o trimmomatic.log
 #$ -t 1-3
 #$ -M
-#$ -P training
-#$ -q training.q
 
 source /usr/local/extras/Genomics/.bashrc
 
