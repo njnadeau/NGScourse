@@ -48,8 +48,6 @@ We are going to use the program ```fastqc``` to assess the quality of our sequen
 #$ -o fastqc.log
 #$ -pe smp 4
 #$ -M
-#$ -P training
-#$ -q training.q
 
 source /usr/local/extras/Genomics/.bashrc
 
