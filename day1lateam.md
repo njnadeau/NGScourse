@@ -1,11 +1,11 @@
 *APS Advanced Stats Delivery* https://github.com/njnadeau/AdvDataAna-introNGS
-# Sequence data formats and assessing sequence quality - day 1 morning part 2
+# Sequence data formats and assessing sequence quality - day 2
 #### Nicola Nadeau, Alison Wright
 
 In this practical you will get to grips with handelling sequence data, assessing its quality and trimming reads.
 
 ## 1. Fastq format, viewing and searching
-We will start by having a look at the sequence data files you downloaded this morning. Navigate to your fastdata directory where they are located. 
+We will start by having a look at the sequence data files you downloaded yesterday. Navigate to your fastdata directory where they are located. 
 
 ```cd /fastdata/$USER/day1/raw/60A```
 
