@@ -19,12 +19,12 @@ You can cancel this command with ```q```. Other useful commands for viewing part
 
 One useful thing we can do within ```less``` is search by typing ```/``` followed by the string you want to find, for example ```/5843:36399``` will jump to the read in the file with that id. You can then continue scrolling up and down if you want to see the reads that come before and after it. 
 
-Another was to search is using ```grep```. This will find all the lines matching the string you specify and write them to ```stdout```. If you want to save these to another file you can do this with ```>```
+Another way to search is using ```grep```. This will find all the lines matching the string you specify and write them to ```stdout```. If you want to save these to another file you can do this with ```>```
 ```bash
 zcat 151019_D00248_0127_AC7HJ7ANXX_7_TP-D7-006_TP-D5-008_1.sanfastq.gz | grep "@HISEQ:127:C7HJ7ANXX:7:1101:18" > subsetofreadnames.fastq
 ```
 This writes the read names containing ```@HISEQ:127:C7HJ7ANXX:7:1101:18``` into a new file called ```subsetofreadnames.fastq```
-Of course in reality we would probably never want to do this because this file is not very useful on its own. What we might want to do is know how many reads there are that start ```@HISEQ:127:C7HJ7ANXX:7:1101:18```. We can do this us ```wc -l```, which counts the number fo lines a file. We can of course now run ```wc -l subsetofreadnames.fastq```, or we could skip the file writing stage
+Of course in reality we would probably never want to do this because this file is not very useful on its own. What we might want to do is know how many reads there are that start ```@HISEQ:127:C7HJ7ANXX:7:1101:18```. We can do this us ```wc -l```, which counts the number of lines a file. We can of course now run ```wc -l subsetofreadnames.fastq```, or we could skip the file writing stage
 ```bash
 zcat 151019_D00248_0127_AC7HJ7ANXX_7_TP-D7-006_TP-D5-008_1.sanfastq.gz | grep "@HISEQ:127:C7HJ7ANXX:7:1101:18" | wc -l
 ```
