@@ -189,7 +189,7 @@ Open it with ```nano```
  for i in raw/60A/*.sanfastq.gz; do md5sum $i; done
 ```
 The lines starting with ```#$``` set various options deterning how the job will run in the cluster. Check what these mean here (Sharc uses SGE Commands):
-https://docs.hpc.shef.ac.uk/en/latest/hpc/scheduler/submit.html#scheduler-options
+https://docs.hpc.shef.ac.uk/en/latest/hpc/scheduler/index.html#batch-jobs
 
 The ```#$ -m bea``` and ```#$ -M``` options mean that it will send an email when the script starts, stops or aborts. You need to add your email address after the ```#$ -M``` option. The save the file and exit.
 
