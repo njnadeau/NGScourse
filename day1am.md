@@ -133,7 +133,7 @@ Log in again (starting a new ssh session) and start a new interactive session (`
 You should now see this every time you log in and start a new interactive session.
 
 We are going to create a working directory in the /fastdata directory on sharc for you to work within during this practical. The fastdata directory is useful because there are no limits to the amount of data you can put there and data there can also be accessed faster (by the machine) than elsewhere on the cluster. However, it is not meant for long term storage of your data and everything on fastdata is automatically deleted after 3 months. It is also good practice for you to delete any data you no longer need, so as not to clog up fastdata for everyone else. If you are working with large data sets for your research project, your supervisor will probably be able to give you access to their group storage area (in ```/shared```) and you also have ```/data``` directory with a file limit of 100GB. Read more about filestores here:
-http://docs.iceberg.shef.ac.uk/en/latest/hpc/filestore.html
+https://docs.hpc.shef.ac.uk/en/latest/hpc/filestore.html
 
 Move to the fastdata directory:
 ```bash
