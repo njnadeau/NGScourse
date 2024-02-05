@@ -204,16 +204,15 @@ qsub MD5calc.sh
 ```
 Check the jobs you have running
 ```bash
-qstat
+squeue --me
 ```
 You should see something like this
 ```
-job-ID  prior   name       user         state submit/start at     queue                          slots ja-task-ID
------------------------------------------------------------------------------------------------------------------
-3528787 0.02478 QRLOGIN    bo1nn        r     02/16/2019 15:55:41 interactive.q@sharc-node003.sh     1
-3528789 0.00003 MD5calc.sh bo1nn        r     02/16/2019 15:58:35 all.q@sharc-node073.shef.ac.uk     1
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           3465904 interacti     bash    bo1nn  R      23:35      1 bessemer-node001
+           3465915 sheffield    MD5.1    bo1nn  R       0:06      1 bessemer-node004
 ```
-The first job is your interactive session, the second is the job you just submitted. ```r``` is good and means it is running. Check the manual page for ```qstat``` to see what the other state codes mean. You should also receive an email to tell you that your job has started (end when it has ended). 
+The first job is your interactive session, the second is the job you just submitted. ```R``` is good and means it is running. Check the manual page for ```squeue``` to see what the other state codes mean. You should also receive an email to tell you that your job has started (end when it has ended). 
 
 Once the job has ended you should find that you have two new files in your directory. View the contents of these (hint ```less```). Hopefully the one ending ```.errorlog``` will be empty and ```MD5.txt``` will contain the calculated md5 sum values for each sequence file. To keep things tidy you can delete the ```.errorlog``` file
 ```bash
