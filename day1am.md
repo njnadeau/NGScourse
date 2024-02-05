@@ -5,23 +5,23 @@
 The aim of this practical is to get you started using the HPC and looking at some NGS data
 
 ## 1. Logging in and getting started
-We will be working on windows machines, which means that you need to use a program (ssh client) to access the cluster. We will be using MobXterm. Start by opening the program, if you have used it before to connect to sharc you may find "sharc.sheff.ac.uk" under "User sessions", in which case you can just double click on this to launch an ssh session on sharc. If not, click on "Session">"SSH" and enter
+We will be working on windows machines, which means that you need to use a program (ssh client) to access the cluster. We will be using MobXterm. Start by opening the program, if you have used it before to connect to Bessemer you may find "bessemer.sheff.ac.uk" under "User sessions", in which case you can just double click on this to launch an ssh session on sharc. If not, click on "Session">"New session">"SSH" and enter
 ```
-sharc.sheffield.ac.uk
+bessemer.shef.ac.uk
 ```
-in the "Remote host" box and specify your username (port should always be 22).
+Specify your username (port should always be 22).
 
-Request an interactive session:
+Access a worker node:
 ```bash
-qrsh
+srun --pty bash -l
 ```
 You should always start by doing this. No work should ever be done on the head node! If you are on a head node you will see someting like this in your command line prompt:
 ```
-[bo1nn@sharc-login1 ~]$
+[bo1nn@bessemer-login1 ~]$
 ```
 This node is just a gateway to the worker nodes. If you are on a worker node you will see the name of the node, eg.
 ```
-[bo1nn@sharc-node004 ~]$
+[bo1nn@bessemer-node004 ~]$
 ```
 
 ## 2. Getting to grips with Linux and setting up your bash profile to access the software repository
@@ -122,13 +122,12 @@ What does ```z``` do?
 | q | exit less |
 
 
-To check that the setup worked, we will need to log out of the hpc and then log in again. Log out of the working node first by typing ```logout``` and then ```logout``` again to exit sharc. 
+To check that the setup worked, we will need to log out of the hpc and then log in again. Log out of the working node first by typing ```logout``` and then ```logout``` again to exit bessemer. 
 
 ## 3. Navigating, creating directories and moving files
 Log in again (starting a new ssh session) and start a new interactive session (```qrsh```). You should then see
 ```
   Your account is set up to use the Genomics Software Repository
-     More info: http://soria-carrasco.staff.shef.ac.uk/softrepo
 ```
 You should now see this every time you log in and start a new interactive session.
 
@@ -147,7 +146,7 @@ mkdir boXXX
 ```
 Navigate into your new folder (hint ```cd```). The data that you are going to be using is in the folder ```/usr/local/extras/Genomics/workshops/NGS_AdvSta_2020/day1```. View the contents of this folder (hint ```ls```). You will see there is a folder here called ```raw```, view the contents of this folder. We want to copy the whole of the ```day1``` directory to your fastdata folder. This may take a couple of minutes, don't expect it to finish immediately.
 ```bash
-cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2020/day1 .
+cp -r /shared/genomicsdb2/shared/workshops/NGS_AdvSta_2020/day1 .
 ```
 The ```.``` here simply means "use the exisiting names". Because we were in the directory where we wanted to copy the files, we didn't need to specify the path but this would do the same thing: 
 ```bash
@@ -175,12 +174,14 @@ You will find a file called ```MD5calc.sh``` in the ```day1``` folder.
 Open it with ```nano```
 ```
 #!/bin/bash
-#$ -l h_rt=2:00:00
-#$ -l rmem=2G
-#$ -m bea
-#$ -e MD5.errorlog
-#$ -o MD5.txt
-#$ -M name@sheffield.ac.uk
+#SBATCH --job-name=MD5.1
+#SBATCH --output=MD5.txt
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=2GB
+#SBATCH --time=2:00:00
+#SBATCH --mail-user=username@sheffield.ac.uk
 
 #insert your email address in the field above you will then receive email notifications when the script starts, ends or aborts
 
@@ -188,10 +189,10 @@ Open it with ```nano```
 
  for i in raw/60A/*.sanfastq.gz; do md5sum $i; done
 ```
-The lines starting with ```#$``` set various options deterning how the job will run in the cluster. Check what these mean here (Sharc uses SGE Commands):
-https://docs.hpc.shef.ac.uk/en/latest/hpc/scheduler/index.html#batch-jobs
+The lines starting with ```#SBATCH``` set various options deterning how the job will run in the cluster. Check what these mean here (bessemer uses SLURM Commands):
+[https://docs.hpc.shef.ac.uk/en/latest/hpc/scheduler/index.html#batch-jobs](https://docs.hpc.shef.ac.uk/en/latest/hpc/scheduler/index.html#gsc.tab=0)
 
-The ```#$ -m bea``` and ```#$ -M``` options mean that it will send an email when the script starts, stops or aborts. You need to add your email address after the ```#$ -M``` option. The save the file and exit.
+The ```#SBATCH --mail-user``` option mean that it will send an email when the script starts, stops or aborts. You need to add your email address after the ```#SBATCH --mail-user=``` option. The save the file and exit.
 
 What does this part do ```for i in raw/60A/*.sanfastq.gz; do md5sum $i; done```?
 
