@@ -150,7 +150,7 @@ cp -r /shared/genomicsdb2/shared/workshops/NGS_AdvSta_2020/day1 .
 ```
 The ```.``` here simply means "use the exisiting names". Because we were in the directory where we wanted to copy the files, we didn't need to specify the path but this would do the same thing: 
 ```bash
-cp -r /usr/local/extras/Genomics/workshops/NGS_AdvSta_2020/day1 /fastdata/boXXX/.
+cp -r /shared/genomicsdb2/shared/workshops/NGS_AdvSta_2020/day1 /fastdata/boXXX/.
 ```
 Why do we need the ```-r``` (hint check ```man cp```)? What happens if you leave it off?
 
