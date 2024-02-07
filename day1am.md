@@ -200,7 +200,7 @@ What does this part do ```for i in raw/60A/*.sanfastq.gz; do md5sum $i; done```?
 
 Run the script:
 ```bash
-qsub MD5calc.sh
+sbatch MD5calc.sh
 ```
 Check the jobs you have running
 ```bash
@@ -214,10 +214,7 @@ You should see something like this
 ```
 The first job is your interactive session, the second is the job you just submitted. ```R``` is good and means it is running. Check the manual page for ```squeue``` to see what the other state codes mean. You should also receive an email to tell you that your job has started (end when it has ended). 
 
-Once the job has ended you should find that you have two new files in your directory. View the contents of these (hint ```less```). Hopefully the one ending ```.errorlog``` will be empty and ```MD5.txt``` will contain the calculated md5 sum values for each sequence file. To keep things tidy you can delete the ```.errorlog``` file
-```bash
-rm *.errorlog
-```
+Once the job has ended you should find that you have a new file in your directory. View the contents of this (hint ```less```). Hopefully you will have one called ```MD5.txt``` that contains the calculated md5 sum values for each sequence file. 
 
 You can compare the values you calculated to the ones calculated by the sequencing centre. The easiest way to do this might be to download your ```MD5.txt``` file so you can open on your computer and view it side-by-side with the values in the ```.md5``` files. The easiest way to dowload the file is using the graphical sftp panel on the left side in MobaXterm. Type ```/fastdata``` in the address bar at the top and then find your own folder below, open it (double click) and download the file by selecting it and using the dowload button at the top or by dragging and dropping to a folder on your computer.
 
