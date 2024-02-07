@@ -41,13 +41,18 @@ There should be the same number of reads in the forward and reverse files. Is th
 We are going to use the program ```fastqc``` to assess the quality of our sequence data. We will submit this as a job to the cluster because it will take some time to run. You have been given the bash script, it is called ```fastqc.sh```. Open this with nano
 ```
 #!/bin/bash
-#$ -l h_rt=0:30:00
-#$ -l rmem=2G
-#$ -m bea
-#$ -j y
-#$ -o fastqc.log
-#$ -pe smp 4
-#$ -M
+# Request 2 gigabytes of real memory (RAM) 4 cores *2G = 8
+#SBATCH --mem=2G
+# Request 4 cores
+#SBATCH --cpus-per-task=4
+# Email notifications to user@sheffield.ac.uk
+#SBATCH --mail-user=user@sheffield.ac.uk
+# Email notifications if the job fails
+#SBATCH --mail-type=FAIL
+# Change the name of the output log file.
+#SBATCH --output=fastqc.log
+# Rename the job's name
+#SBATCH --job-name=fastqc.1
 
 source /usr/local/extras/Genomics/.bashrc
 
@@ -59,6 +64,7 @@ for i in raw/60A/*.sanfastq.gz
   inputString=$inputString$i$space
   done
 
+#runs factqc using 4 cores
 fastqc -o fastqc_output -t 4 $inputString
 ```
 As before, enter your email address. ```#$ -pe smp 4``` tells the cluster to run this in parallel over 4 nodes, using shared memory parallelism (SMP). You can read more about this [here](https://docs.hpc.shef.ac.uk/en/latest/parallel/SMP.html). In the ```fastqc``` input the ```-t 4``` then tells the program it can split its job over 4 nodes. The 2 numbers (-pe and -t) need to be the same!
