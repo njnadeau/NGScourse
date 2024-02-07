@@ -174,14 +174,24 @@ You will find a file called ```MD5calc.sh``` in the ```day1``` folder.
 Open it with ```nano```
 ```
 #!/bin/bash
+# Rename the job's name
 #SBATCH --job-name=MD5.1
+# Change the name of the output log file.
 #SBATCH --output=MD5.txt
+#request 1 node
 #SBATCH --nodes=1
+#run 1 task per node
 #SBATCH --ntasks-per-node=1
+# Request 1 core
 #SBATCH --cpus-per-task=1
+# Request 2 gigabytes of real memory (RAM)
 #SBATCH --mem-per-cpu=2GB
+#set runtime to max 2 hours
 #SBATCH --time=2:00:00
+# Email notifications to user@sheffield.ac.uk
 #SBATCH --mail-user=username@sheffield.ac.uk
+# Email notifications if the job fails
+#SBATCH --mail-type=FAIL
 
 #insert your email address in the field above you will then receive email notifications when the script starts, ends or aborts
 
