@@ -193,7 +193,7 @@ Open it with ```nano```
 # Email notifications if the job fails
 #SBATCH --mail-type=FAIL
 
-#insert your email address in the field above you will then receive email notifications when the script starts, ends or aborts
+#insert your email address in the field above you will then receive email notifications if the script fails for any reason
 
 #the script below will run md5sum on all files ending in .sanfastq.gz in the directory raw/60A (within the directory you are currently in)
 
