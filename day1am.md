@@ -228,6 +228,8 @@ Once the job has ended you should find that you have a new file in your director
 
 You can compare the values you calculated to the ones calculated by the sequencing centre. The easiest way to do this might be to download your ```MD5.txt``` file so you can open on your computer and view it side-by-side with the values in the ```.md5``` files. The easiest way to dowload the file is using the graphical sftp panel on the left side in MobaXterm. Type ```/fastdata``` in the address bar at the top and then find your own folder below, open it (double click) and download the file by selecting it and using the dowload button at the top or by dragging and dropping to a folder on your computer.
 
+If you start a job running but find a mistake or decide you want to cancel it, you can cancel jobs with ```scancel job-id```
+
 ### Exercise
 Try to use the command ```cat``` to view all the ```.md5``` files in ```raw/60A``` at once (hint, you can use ```*``` to save typing out every file name)
 
