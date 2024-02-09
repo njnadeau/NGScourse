@@ -67,7 +67,7 @@ for i in raw/60A/*.sanfastq.gz
 #runs factqc using 4 cores
 fastqc -o fastqc_output -t 4 $inputString
 ```
-As before, enter your email address. ```#SBATCH --cpus-per-task=4``` tells the cluster to run this in parallel over 4 nodes. You can read more about this [here](https://docs.hpc.shef.ac.uk/en/latest/hpc/scheduler/index.html#job-submission-control-on-bessemer&gsc.tab=0[https://docs.hpc.shef.ac.uk/en/latest/hpc/scheduler/index.html#job-submission-control-on-bessemer&gsc.tab=0]). In the ```fastqc``` input the ```-t 4``` then tells the program it can split its job over 4 nodes. The 2 numbers (--cpus-per-task and -t) need to be the same!
+As before, enter your email address. ```#SBATCH --cpus-per-task=4``` tells the cluster to run this in parallel over 4 nodes. You can read more about this [here]([https://docs.hpc.shef.ac.uk/en/latest/hpc/scheduler/index.html#job-submission-control-on-bessemer&gsc.tab=0). In the ```fastqc``` input the ```-t 4``` then tells the program it can split its job over 4 nodes. The 2 numbers (--cpus-per-task and -t) need to be the same!
 This line ```source /usr/local/extras/Genomics/.bashrc``` tells it where to find the Genomics Software Repository, which we set up access to in the morning. 
 Before running this you will need to make a directory called ```fastqc_output``` in the day1 directory (which should also contain your fastqc.sh script). 
 
@@ -121,7 +121,7 @@ TRAILING:3 means remove trailing low quality or N bases below quality 3
 SLIDINGWINDOW:4:15 means scan the read with a 4-base wide sliding window, cutting when the average quality per base drops below 15 
 MINLEN:3 means drop reads below the 36 bases long
 ```
-This script also runs in parallel but instead of splitting one job across several nodes it runs different jobs on each node (set by```#$ -t 1-3```), in our case running each of the 3 sets of paired end data on a different node. Again you need to make sure that the number of jobs you set up (```-t 1-3```) is the same as the number of files you have (```ls raw/60A/*_1.sanfastq.gz```). This is called an array job, you can read more about these [here](https://docs.hpc.shef.ac.uk/en/latest/parallel/MPI.html#parallel-mpi&gsc.tab=0)
+This script also runs in parallel but instead of splitting one job across several nodes it runs different jobs on each node (set by```#$ -t 1-3```), in our case running each of the 3 sets of paired end data on a different node. Again you need to make sure that the number of jobs you set up (```-t 1-3```) is the same as the number of files you have (```ls raw/60A/*_1.sanfastq.gz```). This is called an array job, you can read more about these [here](https://docs.hpc.shef.ac.uk/en/latest/parallel/index.html#gsc.tab=0)
 
 What do you notice when this is running (```qstat```)?
 
