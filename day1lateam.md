@@ -79,13 +79,21 @@ How many reads are in the files (do these match up with the counts you did)? Are
 You will notice that the quality of the reads tends to fall off at the end. Also there seems to be some remaining adaptor, likely where the fragment length has been shorter than the read length. Both of these can be solved by trimming the reads. You have been given a bash script ```trimmomatic.sh``` that uses the program ```trimmomatic``` to trim the reads. Open this script and edit it to add your email address
 ```
 #!/bin/bash
-#$ -l h_rt=0:30:00
-#$ -l rmem=2G
-#$ -m bea
-#$ -j y
-#$ -o trimmomatic.log
-#$ -t 1-3
-#$ -M
+# Request 6 gigabytes of real memory (RAM)
+#SBATCH --mem=6G
+#set up the job array to run 3 jobs (indexing starts at 0 so 0-2)
+#SBATCH --array=0-2
+#set runtime to max 2 hours
+#SBATCH --time=2:00:00
+# Email notifications to user@sheffield.ac.uk
+#SBATCH --mail-user=user@sheffield.ac.uk
+# Email notifications if the job fails
+#SBATCH --mail-type=FAIL
+# Change the name of the output log file.
+#SBATCH --output=trimmomatic.log
+# Rename the job's name
+#SBATCH --job-name=trimmomatic.1
+
 
 source /usr/local/extras/Genomics/.bashrc
 
@@ -98,12 +106,11 @@ SAMPLE1=($(ls raw/60A/*_1.sanfastq.gz))
 SAMPLE2=($(ls raw/60A/*_2.sanfastq.gz))
 
 #set up an index for the reads/tasks
-INDEX=$((SGE_TASK_ID-1))
-
+INDEX=${SLURM_ARRAY_TASK_ID}
 
 # run trimmomatic on the 3 sets
 
-java -jar $ProgramPath/trimmomatic-0.38.jar PE -phred33 ${SAMPLE1[$INDEX]} ${SAMPLE2[$INDEX]} ${SAMPLE1[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE1[$INDEX]}.out_unpaired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_unpaired_50bp.fastq.gz ILLUMINACLIP:$ProgramPath/adapters/TruSeq2-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+java -jar $ProgramPath/trimmomatic-0.39.jar PE -phred33 ${SAMPLE1[$INDEX]} ${SAMPLE2[$INDEX]} ${SAMPLE1[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE1[$INDEX]}.out_unpaired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_paired_50bp.fastq.gz ${SAMPLE2[$INDEX]}.out_unpaired_50bp.fastq.gz ILLUMINACLIP:$ProgramPath/adapters/TruSeq2-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 
 ```
 There are many different ways to trim the data with Trimmomatic. This script uses the parameters recommended by Trimmomatic (see below for explanation). You may have to tweak these parameters in reality and see which work best.
