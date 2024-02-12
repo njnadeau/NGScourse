@@ -79,8 +79,8 @@ How many reads are in the files (do these match up with the counts you did)? Are
 You will notice that the quality of the reads tends to fall off at the end. Also there seems to be some remaining adaptor, likely where the fragment length has been shorter than the read length. Both of these can be solved by trimming the reads. You have been given a bash script ```trimmomatic.sh``` that uses the program ```trimmomatic``` to trim the reads. Open this script and edit it to add your email address
 ```
 #!/bin/bash
-# Request 6 gigabytes of real memory (RAM)
-#SBATCH --mem=6G
+# Request 4 gigabytes of real memory (RAM)
+#SBATCH --mem=4G
 #set up the job array to run 3 jobs (indexing starts at 0 so 0-2)
 #SBATCH --array=0-2
 #set runtime to max 2 hours
