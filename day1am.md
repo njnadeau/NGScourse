@@ -5,7 +5,7 @@
 The aim of this practical is to get you started using the HPC and looking at some NGS data
 
 ## 1. Logging in and getting started
-We will be working on windows machines, which means that you need to use a program (ssh client) to access the cluster. We will be using MobXterm. Start by opening the program, if you have used it before to connect to Bessemer you may find "bessemer.sheff.ac.uk" under "User sessions", in which case you can just double click on this to launch an ssh session on sharc. If not, click on "Session">"New session">"SSH" and enter
+We will be working on windows machines, which means that you need to use a program (ssh client) to access the cluster. We will be using MobXterm. Start by opening the program, if you have used it before to connect to Bessemer you may find "bessemer.sheff.ac.uk" under "User sessions", in which case you can just double click on this to launch an ssh session on bessemer. If not, click on "Session">"New session">"SSH" and enter
 ```
 bessemer.shef.ac.uk
 ```
@@ -44,7 +44,7 @@ Your home directory might look empty, but is it?
 ls -a
 ```
 The ```-a``` switch makes ```ls``` show hidden files, which start with a dot in their file name.
-You might notice that the contents of the directory you are currently in are also displayed on the right hand panel in MobaXterm and you can use the icons and address bar to navigate the directories in sharc. 
+You might notice that the contents of the directory you are currently in are also displayed on the right hand panel in MobaXterm and you can use the icons and address bar to navigate the directories in bessemer. 
 
 We are going to edit the file ```.bash_profile``` to configure your account so that you have access to the Genomics Software Repository that we will be using. The Genomics Software Repository is basically a collection of ready-to-use programs for NGS and population genetic/genomic analysis in a shared folder. Its main advantage is that it removes the necessity for the user to install commonly used programs in their home folder.
 
@@ -131,7 +131,7 @@ Log in again (starting a new ssh session) and start a new interactive session (`
 ```
 You should now see this every time you log in and start a new interactive session.
 
-We are going to create a working directory in the /fastdata directory on sharc for you to work within during this practical. The fastdata directory is useful because there are no limits to the amount of data you can put there and data there can also be accessed faster (by the machine) than elsewhere on the cluster. However, it is not meant for long term storage of your data and everything on fastdata is automatically deleted after 3 months. It is also good practice for you to delete any data you no longer need, so as not to clog up fastdata for everyone else. If you are working with large data sets for your research project, your supervisor will probably be able to give you access to their group storage area (in ```/shared```) and you also have ```/data``` directory with a file limit of 100GB. Read more about filestores here:
+We are going to create a working directory in the /fastdata directory on bessemer for you to work within during this practical. The fastdata directory is useful because there are no limits to the amount of data you can put there and data there can also be accessed faster (by the machine) than elsewhere on the cluster. However, it is not meant for long term storage of your data and everything on fastdata is automatically deleted after 3 months. It is also good practice for you to delete any data you no longer need, so as not to clog up fastdata for everyone else. If you are working with large data sets for your research project, your supervisor will probably be able to give you access to their group storage area (in ```/shared```) and you also have ```/data``` directory with a file limit of 100GB. Read more about filestores here:
 https://docs.hpc.shef.ac.uk/en/latest/hpc/filestore.html
 
 Move to the fastdata directory:
