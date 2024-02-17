@@ -125,7 +125,7 @@ What does ```z``` do?
 To check that the setup worked, we will need to log out of the hpc and then log in again. Log out of the working node first by typing ```logout``` and then ```logout``` again to exit bessemer. 
 
 ## 3. Navigating, creating directories and moving files
-Log in again (starting a new ssh session) and start a new interactive session (```qrsh```). You should then see
+Log in again (starting a new ssh session) and start a new interactive session (```srun --pty bash -l```). You should then see
 ```
   Your account is set up to use the Genomics Software Repository
 ```
