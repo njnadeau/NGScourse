@@ -123,7 +123,7 @@ MINLEN:3 means drop reads below the 36 bases long
 ```
 This script also runs in parallel but instead of splitting one job across several nodes it runs different jobs on each node (set by```#$ -t 1-3```), in our case running each of the 3 sets of paired end data on a different node. Again you need to make sure that the number of jobs you set up (```-t 1-3```) is the same as the number of files you have (```ls raw/60A/*_1.sanfastq.gz```). This is called an array job, you can read more about these [here](https://docs.hpc.shef.ac.uk/en/latest/parallel/index.html#gsc.tab=0)
 
-What do you notice when this is running (```qstat```)?
+What do you notice when this is running (```squeue --me```)?
 
 ### Exercise
 Once this has run you should have 2 new sets of reads for each previous read, one set that is paired and one set that has become unparied since one of the reads as removed entirely. Move these files to a new directory using ```mv``` (hint, you can use ```*``` so you don't need to move each file individually). How many reads of each type are there?
