@@ -233,7 +233,7 @@ You can compare the values you calculated to the ones calculated by the sequenci
 scp USERNAME@bessemer.shef.ac.uk:/fastdata/USERNAME/day1/MD5.txt /Users/USERNAME/Documents/NGScourse
 
 ```
-You will get a Duo prompt.
+You will get a password and Duo prompt.
 
 ### Exercise
 Try to use the command ```cat``` to view all the ```.md5``` files in ```raw/60A``` at once (hint, you can use ```*``` to save typing out every file name)
