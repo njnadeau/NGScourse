@@ -226,9 +226,14 @@ The first job is your interactive session, the second is the job you just submit
 
 Once the job has ended you should find that you have a new file in your directory. View the contents of this (hint ```less```). Hopefully you will have one called ```MD5.txt``` that contains the calculated md5 sum values for each sequence file. 
 
-You can compare the values you calculated to the ones calculated by the sequencing centre. The easiest way to do this might be to download your ```MD5.txt``` file so you can open on your computer and view it side-by-side with the values in the ```.md5``` files. The easiest way to dowload the file is using the graphical sftp panel on the left side in MobaXterm. Type ```/fastdata``` in the address bar at the top and then find your own folder below, open it (double click) and download the file by selecting it and using the dowload button at the top or by dragging and dropping to a folder on your computer.
-
 If you start a job running but find a mistake or decide you want to cancel it, you can cancel jobs with ```scancel job-id```
+
+You can compare the values you calculated to the ones calculated by the sequencing centre. The easiest way to do this might be to download your ```MD5.txt``` file so you can open on your computer and view it side-by-side with the values in the ```.md5``` files. You can do this using use [SCP](https://docs.hpc.shef.ac.uk/en/latest/hpc/transferring-files.html) from the terminal. Open a new terminal window. Use SCP to copy the ```MD5.txt``` from your fastdata directory onto a directory on your computer (.e.g if you have made a folder called "NGScourse in your "My Documents" directory, replacing USERNAME with your username):
+```bash
+scp USERNAME@bessemer.shef.ac.uk:/fastdata/USERNAME/day1/MD5.txt /Users/USERNAME/Documents/NGScourse
+
+```
+You will get a Duo prompt.
 
 ### Exercise
 Try to use the command ```cat``` to view all the ```.md5``` files in ```raw/60A``` at once (hint, you can use ```*``` to save typing out every file name)
