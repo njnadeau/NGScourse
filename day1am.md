@@ -5,11 +5,11 @@
 The aim of this practical is to get you started using the HPC and looking at some NGS data
 
 ## 1. Logging in and getting started
-We will be working on windows machines, which means that you need to use a program (ssh client) to access the cluster. We will be using MobXterm. Start by opening the program, if you have used it before to connect to Bessemer you may find "bessemer.sheff.ac.uk" under "User sessions", in which case you can just double click on this to launch an ssh session on bessemer. If not, click on "Session">"New session">"SSH" and enter
+If you are working on a Windows machine For Windows PCs, we recommend the use of Windows Terminal which is available on the University’s managed desktops by default. If not already installed on your device, Windows Terminal can be found on the Microsoft Store. If you are using a different operating system there are instructions [here](https://docs.hpc.shef.ac.uk/en/latest/hpc/connecting.html#suggested-ssh-clients&gsc.tab=0). Start by opening the terminal, then run the following command to log in to bessemer
 ```
-bessemer.shef.ac.uk
+ssh -X YOUR_USERNAME@bessemer.shef.ac.uk
 ```
-Specify your username (port should always be 22).
+specify your username. You will then be prompted for dual-factor authentication.
 
 Access a worker node:
 ```bash
