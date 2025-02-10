@@ -228,7 +228,7 @@ Once the job has ended you should find that you have a new file in your director
 
 If you start a job running but find a mistake or decide you want to cancel it, you can cancel jobs with ```scancel job-id```
 
-You can compare the values you calculated to the ones calculated by the sequencing centre. The easiest way to do this might be to download your ```MD5.txt``` file so you can open on your computer and view it side-by-side with the values in the ```.md5``` files. You can do this using use [SCP](https://docs.hpc.shef.ac.uk/en/latest/hpc/transferring-files.html) from the terminal. Open a new terminal window. Use SCP to copy the ```MD5.txt``` from your fastdata directory onto a directory on your computer (e.g. if you have made a folder called "NGScourse in your "My Documents" directory, replacing USERNAME with your username):
+You can compare the values you calculated to the ones calculated by the sequencing centre. The easiest way to do this might be to download your ```MD5.txt``` file so you can open on your computer and view it side-by-side with the values in the ```.md5``` files. You can do this using use [SCP](https://docs.hpc.shef.ac.uk/en/latest/hpc/transferring-files.html) from the terminal. Open a new terminal window. Use SCP to copy the ```MD5.txt``` from your fastdata directory onto a directory on your computer (e.g. if you have made a folder called "NGScourse in your "Documents" directory, replacing USERNAME with your username):
 ```bash
 scp USERNAME@bessemer.shef.ac.uk:/fastdata/USERNAME/day1/MD5.txt /Users/USERNAME/Documents/NGScourse
 
